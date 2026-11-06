@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gptchat"
+dynamic = ["version"]
+description = "Terminal chatbot for OpenAI-compatible chat APIs"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.40.0",
+    "rich>=13.7.0",
+]
+classifiers = [
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.scripts]
+gptchat = "gptchat.cli:main"
+
+[tool.setuptools]
+packages = ["gptchat"]
+
+[tool.setuptools.dynamic]
+version = { attr = "gptchat.__version__" }
